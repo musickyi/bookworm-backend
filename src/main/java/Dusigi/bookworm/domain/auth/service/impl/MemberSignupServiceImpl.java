@@ -7,6 +7,7 @@ import Dusigi.bookworm.domain.auth.service.MemberSignUpService;
 import Dusigi.bookworm.global.GlobalException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -15,6 +16,7 @@ public class MemberSignupServiceImpl implements MemberSignUpService {
 
     private final MemberRepository memberRepository;
     private final MemberMapper memberMapper;
+    private final PasswordEncoder encoder;
 
     @Override
     public void execute(MemberSignupRequest request) {
@@ -23,6 +25,6 @@ public class MemberSignupServiceImpl implements MemberSignUpService {
 
 
 
-        memberRepository.save(memberMapper.signupRequestToMember(request));
+        memberRepository.save(memberMapper.signupRequestToMember(request,encoder.encode(request.getPassword())));
     }
 }
