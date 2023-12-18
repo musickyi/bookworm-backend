@@ -8,11 +8,11 @@ import org.springframework.stereotype.Component;
 public class MemberMapper {
 
 
-    public Member signupRequestToMember(MemberSignupRequest request){
+    public Member signupRequestToMember(MemberSignupRequest request, String password){
         return new Member(
                 request.getId(),
                 request.getNickname(),
-                request.getPassword());
+                password);
     }
 
 
