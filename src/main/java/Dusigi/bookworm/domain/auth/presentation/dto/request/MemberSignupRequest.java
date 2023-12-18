@@ -12,18 +12,15 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class MemberSignupRequest {
 
-    @NotBlank
+    @NotBlank(message = "아이디는 null 또는 공백을 허용하지 않습니다.")
+    private String id;
+
+    @NotBlank(message = "닉네임은 null 또는 공백을 허용하지 않습니다.")
     private String nickname;
 
-    @NotBlank
+    @NotBlank(message = "패스워드는 null 또는 공백을 허용하지 않습니다.")
     private String password;
 
 
 
-    public Member convertRequest(){
-        return Member.builder()
-                .nickname(nickname)
-                .password(password)
-                .build();
-    }
 }
