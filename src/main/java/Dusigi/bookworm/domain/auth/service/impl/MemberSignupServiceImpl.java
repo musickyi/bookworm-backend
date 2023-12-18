@@ -1,5 +1,6 @@
 package Dusigi.bookworm.domain.auth.service.impl;
 
+import Dusigi.bookworm.domain.auth.mapper.MemberMapper;
 import Dusigi.bookworm.domain.auth.presentation.dto.request.MemberSignupRequest;
 import Dusigi.bookworm.domain.auth.repository.MemberRepository;
 import Dusigi.bookworm.domain.auth.service.MemberSignUpService;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Service;
 public class MemberSignupServiceImpl implements MemberSignUpService {
 
     private final MemberRepository memberRepository;
+    private final MemberMapper memberMapper;
 
     @Override
     public void execute(MemberSignupRequest request) {
@@ -21,9 +23,6 @@ public class MemberSignupServiceImpl implements MemberSignUpService {
 
 
 
-        memberRepository.save(request.convertRequest());
+        memberRepository.save(memberMapper.signupRequestToMember(request));
     }
-
-
-
 }
