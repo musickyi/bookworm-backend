@@ -1,4 +1,4 @@
-package Dusigi.bookworm.global.security;
+package Dusigi.bookworm.global.security.config;
 
 
 import org.springframework.context.annotation.Bean;

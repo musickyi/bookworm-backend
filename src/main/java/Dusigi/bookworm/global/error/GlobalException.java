@@ -1,4 +1,4 @@
-package Dusigi.bookworm.global;
+package Dusigi.bookworm.global.error;
 
 import org.springframework.http.HttpStatus;
 
