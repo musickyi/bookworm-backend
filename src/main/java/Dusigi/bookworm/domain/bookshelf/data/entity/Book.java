@@ -1,5 +1,6 @@
 package Dusigi.bookworm.domain.bookshelf.data.entity;
 
+import Dusigi.bookworm.domain.auth.entity.Member;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -22,6 +23,10 @@ public class Book {
     private String text;
     @Column(nullable = false)
     private String bookshelf;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "member_id")
+    private Member member;
 
     private Integer report;
 
