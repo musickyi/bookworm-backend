@@ -1,4 +1,4 @@
-package Dusigi.bookworm.domain.bookshelf.data.dto;
+package Dusigi.bookworm.domain.bookshelf.data.dto.request;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;

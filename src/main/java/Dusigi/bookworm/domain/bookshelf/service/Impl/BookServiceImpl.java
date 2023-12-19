@@ -1,9 +1,12 @@
 package Dusigi.bookworm.domain.bookshelf.service.Impl;
 
+import Dusigi.bookworm.domain.bookshelf.data.dto.response.NewBookDto;
 import Dusigi.bookworm.domain.bookshelf.data.repository.BookRepository;
+import Dusigi.bookworm.domain.bookshelf.mapper.BookMapper;
 import Dusigi.bookworm.domain.bookshelf.service.BookService;
-import Dusigi.bookworm.domain.bookshelf.data.dto.BookDto;
+import Dusigi.bookworm.domain.bookshelf.data.dto.request.BookDto;
 import Dusigi.bookworm.domain.bookshelf.data.entity.Book;
+import Dusigi.bookworm.global.util.MemberUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -12,17 +15,22 @@ import org.springframework.stereotype.Service;
 public class BookServiceImpl implements BookService {
 
     private final BookRepository bookRepository;
+    private final MemberUtil memberUtil;
+    private final BookMapper bookMapper;
+
 
     @Override
-    public Book createBook(BookDto bookRequest) {
+    public NewBookDto createBook(BookDto bookRequest) {
         Book book = Book.builder()
-                .author(bookRequest.getAuthor())
+                .author(memberUtil.currentNickName())
                 .title(bookRequest.getTitle())
                 .text(bookRequest.getText())
                 .bookshelf(bookRequest.getBookshelf())
+                .member(memberUtil.currentMember())
                 .report(0)
                 .build();
 
-        return bookRepository.save(book);
+        return bookMapper.bookToNewBookDto(bookRepository.save(book));
+
     }
 }

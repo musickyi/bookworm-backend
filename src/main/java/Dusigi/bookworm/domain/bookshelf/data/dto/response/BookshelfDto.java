@@ -1,4 +1,4 @@
-package Dusigi.bookworm.domain.bookshelf.data.dto;
+package Dusigi.bookworm.domain.bookshelf.data.dto.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

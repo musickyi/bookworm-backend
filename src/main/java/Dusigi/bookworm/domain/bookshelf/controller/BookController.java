@@ -1,13 +1,11 @@
 package Dusigi.bookworm.domain.bookshelf.controller;
 
-import Dusigi.bookworm.domain.bookshelf.data.dto.BookDetailDto;
-import Dusigi.bookworm.domain.bookshelf.data.dto.BookDto;
-import Dusigi.bookworm.domain.bookshelf.data.dto.BookshelfDto;
-import Dusigi.bookworm.domain.bookshelf.data.entity.Book;
-import Dusigi.bookworm.domain.bookshelf.service.BookDetailService;
-import Dusigi.bookworm.domain.bookshelf.service.BookService;
-import Dusigi.bookworm.domain.bookshelf.service.BookshelfService;
-import Dusigi.bookworm.domain.bookshelf.service.ReportService;
+import Dusigi.bookworm.domain.bookshelf.data.dto.request.BookDetailDto;
+import Dusigi.bookworm.domain.bookshelf.data.dto.request.BookDto;
+import Dusigi.bookworm.domain.bookshelf.data.dto.response.BookshelfDto;
+import Dusigi.bookworm.domain.bookshelf.data.dto.response.MyBookDto;
+import Dusigi.bookworm.domain.bookshelf.data.dto.response.NewBookDto;
+import Dusigi.bookworm.domain.bookshelf.service.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,14 +21,14 @@ public class BookController {
     private final BookshelfService bookshelfService;
     private final ReportService reportService;
     private final BookDetailService bookDetailService;
+    private final FindMyBookService findMyBookService;
 
     @PostMapping
-    public ResponseEntity<Book> createBook(@RequestBody BookDto bookRequest) {
-        Book createdBook = bookService.createBook(bookRequest);
-        return new ResponseEntity<>(createdBook, HttpStatus.CREATED);
+    public ResponseEntity<NewBookDto> createBook(@RequestBody BookDto bookRequest) {
+        return new ResponseEntity<>(bookService.createBook(bookRequest), HttpStatus.CREATED);
     }
 
-   @GetMapping("/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<BookDetailDto> getBook(@PathVariable Long id) {
         return new ResponseEntity<>(bookDetailService.getBook(id), HttpStatus.OK);
     }
@@ -42,9 +40,14 @@ public class BookController {
     }
 
     @PatchMapping("/report/{id}")
-    public ResponseEntity<Book> getReport(@PathVariable Long id) {
+    public ResponseEntity<Void> getReport(@PathVariable Long id) {
         reportService.getReport(id);
         return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @GetMapping("/my")
+    public ResponseEntity<List<MyBookDto>> findMyBook(){
+        return new ResponseEntity<>(findMyBookService.execute(), HttpStatus.OK);
     }
 
 }
