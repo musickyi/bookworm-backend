@@ -48,7 +48,6 @@ public class SecurityConfig {
                 .requestMatchers(HttpMethod.GET, "/hi").authenticated()
 
                 .requestMatchers(HttpMethod.POST,"/book").authenticated()
-                .requestMatchers(HttpMethod.GET,"/book").authenticated()
                 .requestMatchers(HttpMethod.POST,"/book/**").authenticated()
                 .requestMatchers(HttpMethod.GET,"/book/**").authenticated()
                 .requestMatchers(HttpMethod.PATCH, "/book/**").authenticated()
