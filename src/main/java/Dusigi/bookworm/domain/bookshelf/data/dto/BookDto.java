@@ -7,7 +7,6 @@ import lombok.Builder;
 import lombok.Getter;
 
 @Getter
-@Builder
 @AllArgsConstructor
 public class BookDto {
     @NotBlank(message = "저자는 공백을 허용하지 않습니다.")
