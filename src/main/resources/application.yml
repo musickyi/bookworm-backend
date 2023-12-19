@@ -1,5 +1,5 @@
 server:
-  port: 9039
+  port: ${BOOKWORM_SERVER_PORT}
 spring:
 
   datasource:
