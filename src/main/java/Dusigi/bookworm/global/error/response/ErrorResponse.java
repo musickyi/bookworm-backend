@@ -1,4 +1,4 @@
-package Dusigi.bookworm.global.response;
+package Dusigi.bookworm.global.error.response;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

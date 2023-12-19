@@ -1,6 +1,7 @@
-package Dusigi.bookworm.global;
+package Dusigi.bookworm.global.error;
 
-import Dusigi.bookworm.global.response.ErrorResponse;
+import Dusigi.bookworm.global.error.GlobalException;
+import Dusigi.bookworm.global.error.response.ErrorResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.json.JSONObject;
 import org.springframework.http.HttpStatus;

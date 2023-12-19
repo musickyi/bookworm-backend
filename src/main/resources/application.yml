@@ -1,19 +1,21 @@
 server:
   port: ${BOOKWORM_SERVER_PORT}
 spring:
+
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://${BOOKWORM_MYSQL_HOST}:${BOOKWORM_MYSQL_PORT}/${BOOKWORM_DATA_BASE_NAME}?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
-    username: ${BOOKWORM_MYSQL_USER_NAME}
-    password: ${BOOKWORM_MYSQL_USER_PASSWORD}
+    driver-class-name: ${DB_CLASS}
+    url: ${DB_URL}
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
 
   jpa:
     generate-ddl: true
     hibernate:
       ddl-auto: create
     show_sql: true
-    format_sql: true
 
 jwt:
   accessSecret: ${ACCESS_SECRET}
   refreshSecret: ${REFRESH_SECRET}
+  accessTime: 100000
+  refreshTime: 1209600

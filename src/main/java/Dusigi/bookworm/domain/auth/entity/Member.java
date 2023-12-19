@@ -18,15 +18,15 @@ public class Member {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long memberId;
 
-    @Column(name = "member_id", nullable = false)
-    private String member_id;
+    @Column(nullable = false, unique = true)
+    private String loginId;
 
     @Column(name = "member_nickname", nullable = false)
-    private String nickname;
+    private String nickName;
 
-    @Column(name = "member_password",nullable = false)
+    @Column(name = "member_password", nullable = false)
     private String password;
 
 }
