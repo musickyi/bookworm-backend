@@ -1,6 +1,6 @@
 package Dusigi.bookworm.domain.bookshelf.service;
 
-import Dusigi.bookworm.domain.bookshelf.data.dto.BookshelfDto;
+import Dusigi.bookworm.domain.bookshelf.data.dto.response.BookshelfDto;
 
 import java.util.List;
 
