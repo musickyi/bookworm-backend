@@ -11,8 +11,8 @@ public class MemberMapper {
 
     public Member signupRequestToMember(MemberSignupRequest request, String password){
         return Member.builder()
-                .member_id(request.getId())
-                .nickname(request.getNickname())
+                .loginId(request.getId())
+                .nickName(request.getNickname())
                 .password(password)
                 .build();
 
