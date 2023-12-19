@@ -46,6 +46,12 @@ public class SecurityConfig {
                 .requestMatchers(HttpMethod.POST, "/auth/signup").permitAll()
                 .requestMatchers(HttpMethod.POST, "/auth/login").permitAll()
                 .requestMatchers(HttpMethod.GET, "/hi").authenticated()
+
+                .requestMatchers(HttpMethod.POST,"/book").authenticated()
+                .requestMatchers(HttpMethod.GET,"/book").authenticated()
+                .requestMatchers(HttpMethod.POST,"/book/**").authenticated()
+                .requestMatchers(HttpMethod.GET,"/book/**").authenticated()
+                .requestMatchers(HttpMethod.PATCH, "/book/**").authenticated()
                 .anyRequest().denyAll();
         http
                 .addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
