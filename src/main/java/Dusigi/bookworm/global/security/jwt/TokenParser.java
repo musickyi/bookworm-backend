@@ -66,7 +66,7 @@ public class TokenParser {
         }
     }
 
-    private String getTokenSubject(String token, Key secret) {
+    public String getTokenSubject(String token, Key secret) {
         return getTokenBody(token, secret).getSubject();
     }
 
