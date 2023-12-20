@@ -2,7 +2,7 @@ package Dusigi.bookworm.domain.auth.presentation;
 
 import Dusigi.bookworm.domain.auth.presentation.dto.request.MemberLoginRequest;
 import Dusigi.bookworm.domain.auth.presentation.dto.request.MemberSignupRequest;
-import Dusigi.bookworm.domain.auth.presentation.dto.response.LoginResponse;
+import Dusigi.bookworm.domain.auth.presentation.dto.response.TokenResponse;
 import Dusigi.bookworm.domain.auth.service.MemberLoginService;
 import Dusigi.bookworm.domain.auth.service.MemberSignUpService;
 import Dusigi.bookworm.domain.auth.service.RefreshTokenService;
@@ -28,13 +28,13 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<LoginResponse> memberLogin(@RequestBody @Valid MemberLoginRequest request) {
+    public ResponseEntity<TokenResponse> memberLogin(@RequestBody @Valid MemberLoginRequest request) {
         var response = memberLoginService.execute(request);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     @PatchMapping("/reissue-token")
-    public ResponseEntity<LoginResponse> refreshToken(@RequestHeader("RefreshToken") String refreshToken) {
+    public ResponseEntity<TokenResponse> refreshToken(@RequestHeader("RefreshToken") String refreshToken) {
         var response = refreshTokenService.execute(refreshToken);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }

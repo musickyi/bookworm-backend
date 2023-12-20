@@ -2,7 +2,7 @@ package Dusigi.bookworm.domain.auth.service.impl;
 
 import Dusigi.bookworm.domain.auth.entity.Member;
 import Dusigi.bookworm.domain.auth.presentation.dto.request.MemberLoginRequest;
-import Dusigi.bookworm.domain.auth.presentation.dto.response.LoginResponse;
+import Dusigi.bookworm.domain.auth.presentation.dto.response.TokenResponse;
 import Dusigi.bookworm.domain.auth.repository.MemberRepository;
 import Dusigi.bookworm.domain.auth.service.MemberLoginService;
 import Dusigi.bookworm.global.error.GlobalException;
@@ -23,7 +23,7 @@ public class MemberLoginServiceImpl implements MemberLoginService {
     private final PasswordEncoder encoder;
 
     @Override
-    public LoginResponse execute(MemberLoginRequest request) {
+    public TokenResponse execute(MemberLoginRequest request) {
         Member member = memberRepository.findMemberByLoginId(request.getMemberId())
                 .orElseThrow(() -> new GlobalException("user not found", HttpStatus.NOT_FOUND));
 

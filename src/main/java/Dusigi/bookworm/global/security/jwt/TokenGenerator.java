@@ -1,6 +1,6 @@
 package Dusigi.bookworm.global.security.jwt;
 
-import Dusigi.bookworm.domain.auth.presentation.dto.response.LoginResponse;
+import Dusigi.bookworm.domain.auth.presentation.dto.response.TokenResponse;
 import Dusigi.bookworm.global.security.jwt.properties.JwtProperties;
 import Dusigi.bookworm.global.security.jwt.properties.TokenTimeProperties;
 import io.jsonwebtoken.Claims;
@@ -30,8 +30,8 @@ public class TokenGenerator {
         final String value;
     }
 
-    public LoginResponse getToken(String memberId) {
-        return LoginResponse.builder()
+    public TokenResponse getToken(String memberId) {
+        return TokenResponse.builder()
                 .accessToken(generateToken(memberId, Token.ACCESS_TYPE.value, tokenTimeProperties.getAccessTime(), jwtProperties.getAccessSecret()))
                 .refreshToken(generateToken(memberId, Token.REFRESH_TYPE.value, tokenTimeProperties.getRefreshTime(), jwtProperties.getRefreshSecret()))
                 .accessExpiredAt(accessExpiredTime())

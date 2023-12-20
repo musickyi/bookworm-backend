@@ -1,7 +1,7 @@
 package Dusigi.bookworm.domain.auth.service;
 
-import Dusigi.bookworm.domain.auth.presentation.dto.response.LoginResponse;
+import Dusigi.bookworm.domain.auth.presentation.dto.response.TokenResponse;
 
 public interface RefreshTokenService {
-    LoginResponse execute(String refreshToken);
+    TokenResponse execute(String refreshToken);
 }

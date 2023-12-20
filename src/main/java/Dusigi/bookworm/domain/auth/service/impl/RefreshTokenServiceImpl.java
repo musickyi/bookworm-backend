@@ -1,6 +1,6 @@
 package Dusigi.bookworm.domain.auth.service.impl;
 
-import Dusigi.bookworm.domain.auth.presentation.dto.response.LoginResponse;
+import Dusigi.bookworm.domain.auth.presentation.dto.response.TokenResponse;
 import Dusigi.bookworm.domain.auth.service.RefreshTokenService;
 import Dusigi.bookworm.global.security.jwt.TokenGenerator;
 import Dusigi.bookworm.global.security.jwt.TokenParser;
@@ -15,7 +15,7 @@ public class RefreshTokenServiceImpl implements RefreshTokenService {
     private final JwtProperties jwtProperties;
     private final TokenGenerator tokenGenerator;
     @Override
-    public LoginResponse execute(String refreshToken) {
+    public TokenResponse execute(String refreshToken) {
         String nickname = tokenParser.getTokenSubject(refreshToken, jwtProperties.getRefreshSecret());
         return tokenGenerator.getToken(nickname);
     }
