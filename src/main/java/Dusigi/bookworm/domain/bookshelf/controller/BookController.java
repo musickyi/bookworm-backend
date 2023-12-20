@@ -1,6 +1,6 @@
 package Dusigi.bookworm.domain.bookshelf.controller;
 
-import Dusigi.bookworm.domain.bookshelf.data.dto.request.BookDetailDto;
+import Dusigi.bookworm.domain.bookshelf.data.dto.response.BookDetailDto;
 import Dusigi.bookworm.domain.bookshelf.data.dto.request.BookDto;
 import Dusigi.bookworm.domain.bookshelf.data.dto.response.BookshelfDto;
 import Dusigi.bookworm.domain.bookshelf.data.dto.response.MyBookDto;
