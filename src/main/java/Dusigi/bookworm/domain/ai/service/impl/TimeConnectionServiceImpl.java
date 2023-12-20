@@ -13,7 +13,7 @@ public class TimeConnectionServiceImpl implements TimeConnectionService {
     private final ConnectionService connectionService;
 
     @Override
-    @Scheduled(cron = "0 12 * * *")
+    @Scheduled(cron = "0 0 0 * * *", zone = "Asia/Seoul")
     public void execute() {
         connectionService.execute();
     }
