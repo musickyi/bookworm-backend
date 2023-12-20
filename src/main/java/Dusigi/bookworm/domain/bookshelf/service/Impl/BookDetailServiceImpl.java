@@ -1,6 +1,6 @@
 package Dusigi.bookworm.domain.bookshelf.service.Impl;
 
-import Dusigi.bookworm.domain.bookshelf.data.dto.request.BookDetailDto;
+import Dusigi.bookworm.domain.bookshelf.data.dto.response.BookDetailDto;
 import Dusigi.bookworm.domain.bookshelf.data.entity.Book;
 import Dusigi.bookworm.domain.bookshelf.data.repository.BookRepository;
 import Dusigi.bookworm.domain.bookshelf.service.BookDetailService;
@@ -16,6 +16,6 @@ public class BookDetailServiceImpl implements BookDetailService {
     @Override
     public BookDetailDto getBook(Long id) {
         Book book = bookRepository.findById(id).orElseThrow(() -> new GlobalException("존재하지 않는 책입니다.", HttpStatus.NOT_FOUND));
-        return new BookDetailDto(book.getAuthor(), book.getTitle(), book.getText());
+        return new BookDetailDto(book.getId(), book.getAuthor(), book.getTitle(), book.getText());
     }
 }
