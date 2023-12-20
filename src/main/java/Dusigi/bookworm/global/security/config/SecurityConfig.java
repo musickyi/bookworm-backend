@@ -46,7 +46,7 @@ public class SecurityConfig {
                 .requestMatchers(HttpMethod.POST, "/auth/signup").permitAll()
                 .requestMatchers(HttpMethod.POST, "/auth/login").permitAll()
                 .requestMatchers(HttpMethod.PATCH, "/auth/reissue-token").permitAll()
-                .requestMatchers(HttpMethod.GET, "/hi").authenticated()
+                .requestMatchers("/hi/**").permitAll()
 
                 .requestMatchers(HttpMethod.POST,"/book").authenticated()
                 .requestMatchers(HttpMethod.POST,"/book/**").authenticated()

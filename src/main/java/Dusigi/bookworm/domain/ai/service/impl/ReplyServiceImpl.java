@@ -2,7 +2,6 @@ package Dusigi.bookworm.domain.ai.service.impl;
 
 import Dusigi.bookworm.domain.ai.presentation.data.request.BookDetail;
 import Dusigi.bookworm.domain.ai.service.ReplyService;
-import Dusigi.bookworm.domain.bookshelf.data.entity.Book;
 import Dusigi.bookworm.domain.bookshelf.data.repository.BookRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

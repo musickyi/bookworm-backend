@@ -18,13 +18,13 @@ public class ConnectionController {
     private final ConnectionService connectionService;
     private final ReplyService replyService;
 
-    @PostMapping
+    @GetMapping
     public ResponseEntity<Void> connection() {
         connectionService.execute();
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @DeleteMapping
+    @PostMapping
     public ResponseEntity<Void> reply(@RequestBody List<BookDetail> list) {
         replyService.execute(list);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
